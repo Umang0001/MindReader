@@ -6,15 +6,23 @@ let cardInfo=document.querySelector(".card-info");
 
 
 let randomNumber;
+let multiplier;
 const handleDone = ()=>{
     if (counter === 1) {
         randomNumber=generateRandomNumber();
+        multiplier=generateRandomNumber("add")
+        if (multiplier == 0) {
+            multiplier=4
+        }
+        if (multiplier %2 === 1) {
+            multiplier++
+        }
     }
 
     switch (counter) {
         case 1:
 
-            handleTimeout("Now multiply it by 2 !")
+            handleTimeout(`Now multiply it by ${multiplier} !`)
             break;
 
         case 2:
@@ -22,14 +30,14 @@ const handleDone = ()=>{
             break;
 
         case 3:
-            handleTimeout(`Divide the number you got by 2 !`)
+            handleTimeout(`Divide the number you got by ${multiplier} !`)
             break; 
 
         case 4:
             handleTimeout("Now subtract the number which you chosed initially ! ")
             break; 
         case 5:
-            handleTimeout(`The answer you got is ${randomNumber/2} !!!`)
+            handleTimeout(`The answer you got is ${randomNumber/multiplier} &#128522;&#128522;&#128522;`)
             break; 
     
         default:
@@ -79,12 +87,16 @@ const handleTimeout = (msgText)=>{
                 </li>
             </ul>
         </button>`
-        }, 3000);
+        }, 5000);
     }
 }
 
-const generateRandomNumber = ()=>{
-    let number = Math.round(Math.random()*100);
+const generateRandomNumber = (option="")=>{
+    let multiply=100;
+    if (option === "add") {
+        multiply=10
+    }
+    let number = Math.round(Math.random()*multiply);
     if (number % 2 ===1) {
         number++;
     }
