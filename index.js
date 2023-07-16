@@ -44,7 +44,7 @@ const handleTimeout = (msgText)=>{
         message.innerHTML=msgText;
         message.classList.remove("hidden")
         loader.classList.add("hidden")
-    },000);
+    },2000);
     counter++
     if (counter == 6) {
         doneBtn.innerText="Thank You !";
