@@ -3,7 +3,6 @@ let message=document.querySelector(".message");
 let loader=document.querySelector("#wifi-loader");
 let doneBtn=document.querySelector("#done");
 let cardInfo=document.querySelector(".card-info");
-alert(window.innerWidth)
 
 
 let randomNumber;
